@@ -1,0 +1,20 @@
+/* index.css */
+
+@font-face {
+  font-family: "Swera Demo";
+  src: url("./assets/fonts/SweraDemo-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+
+  background-image: url("./assets/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+
+  min-height: 3840px; /* força altura mínima da página */
+}
