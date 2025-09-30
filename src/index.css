@@ -11,7 +11,7 @@ body {
   margin: 0;
   font-family: "Inter", sans-serif;
 
-  background-image: url("./assets/background.png");
+  background-image: url("./assets/images/background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;

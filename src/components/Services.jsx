@@ -40,7 +40,10 @@ function Services() {
   ];
 
   return (
-    <section className="services">
+    <section 
+    className="services"
+    id = "services"
+    >
       <h2 className="services-title">O que podemos fazer por você?</h2>
 
       <div className="services-grid">

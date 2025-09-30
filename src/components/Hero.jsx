@@ -1,6 +1,6 @@
 // Hero.jsx
 import "./Hero.css";
-import logoImg from "../assets/logo-3d.png";
+import logoImg from "../assets/images/logo-3d.png";
 
 function Hero() {
   return (

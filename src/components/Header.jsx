@@ -29,7 +29,7 @@ function Header() {
   return (
     <header className="header">
       {/* Logo */}
-      <a href="/" className="logo">
+      <a href="/site-gupa-solutions" className="logo">
         <h1 className="logo-title">GUPASOLUTIONS</h1>
         <p className="logo-subtitle">TECNOLOGIA E INOVAÇÃO</p>
       </a>
