@@ -1,27 +1,25 @@
 /* HERO base */
 .hero {
   width: 100%;
-  min-height: 1080px; /* desktop baseado no Figma */
-  margin-top: 80px;
+  min-height: 1080px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-
-  /* margens fixas Figma */
-  padding-left: clamp(16px, 12.5vw, 240px);
-  padding-right: clamp(16px, 10.4vw, 200px);
-
-  max-width: 100vw;      /* evita estourar a largura da tela */
-  box-sizing: border-box; /* inclui paddings no cálculo */
+  justify-content: center;
+  gap: 160px;
+  padding-left: clamp(16px, 10vw, 160px);
+  padding-right: clamp(16px, 8vw, 160px);
+  max-width: 100vw;
+  box-sizing: border-box;
   overflow-x: hidden;
 }
 
 .hero-content {
+  flex: 1;                 /* ocupa metade do espaço */
+  max-width: 720px;        /* limite de largura */
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 0px;
-  max-width: 50%;
+  gap: 16px;               /* espaçamento entre linhas */
 }
 
 /* Textos */
@@ -30,6 +28,7 @@
   line-height: 1.1;
   opacity: 0;
   animation: fadeInUp 0.8s ease forwards;
+  white-space: nowrap;
 }
 
 .hero-text.light {
@@ -84,7 +83,8 @@
 
 /* Logo */
 .hero-image {
-  flex: 1;
+  flex: 1;                 /* ocupa metade do espaço */
+  max-width: 600px;        /* limite da largura */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,10 +94,10 @@
 }
 
 .hero-image img {
-  width: clamp(200px, 30vw, 600px);
+  width: clamp(380px, 35vw, 600px);
   height: auto;
   display: block;
-  max-width: 100%; /* garante que não estoure a tela */
+  max-width: 100%;
   filter: drop-shadow(0px 4px 12px rgba(0, 0, 0, 0.6));
 }
 
@@ -124,7 +124,9 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    padding: 100px 40px 60px;
+
+    /* padding vertical reduzido */
+    padding: 60px 40px;
     min-height: 100vh;
   }
 
@@ -136,7 +138,7 @@
   }
 
   .hero-image {
-    margin-top: clamp(20px, 5vh, 40px);
+    margin-top: 40px;
     justify-content: center;
   }
 
@@ -147,7 +149,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 60px 20px 40px; /* 👈 reduzido para subir no mobile */
+    padding: 40px 20px; /* 👈 bem mais leve no mobile */
   }
 
   .hero-content { gap: 6px; }

@@ -73,7 +73,7 @@
   width: 345px;
   height: 320px;
   border-radius: 16px;
-  padding: 32px 24px;
+  padding: 64px 24px;
   text-align: center;
   position: relative;
   color: #ACA4B4;
@@ -198,6 +198,13 @@
 .service-item:nth-child(7) h3 { background-image: linear-gradient(180deg, #B50C26, #aca4b4); }
 
 /* 📱 Responsividade */
+
+@media (min-width: 2560px) {
+  .services-grid {
+    gap: 160px 64px; /* mais espaço entre linhas e colunas */
+    max-width: calc(4 * 345px + 3 * 64px); /* recalcula p/ manter 4 por linha */
+  }
+}
 
 /* Até 1024px → apenas ajusta espaçamento, mantém tamanhos */
 @media (max-width: 1024px) {

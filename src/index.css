@@ -1,5 +1,6 @@
 /* index.css */
 
+/* Fonte customizada */
 @font-face {
   font-family: "Swera Demo";
   src: url("./assets/fonts/SweraDemo-Regular.otf") format("opentype");
@@ -7,6 +8,14 @@
   font-style: normal;
 }
 
+/* Reset global */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* padding e border contam dentro da altura */
+}
+
+/* Body antigo comentado
 body {
   margin: 0;
   padding: 0;
@@ -17,5 +26,138 @@ body {
   background-size: cover;
   background-position: top center;
 
-  min-height: 3840px; /* força altura mínima da página */
+  min-height: 3840px;
+} 
+*/
+
+/* Fundo global preto */
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #000; /* fundo preto global */
+  color: #fff;      /* texto branco para contraste */
+  font-family: "Inter", sans-serif;
+  min-height: 100%; /* garante altura mínima */
+}
+
+/* HEADER fixo no topo */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;          /* altura fixa */
+  background: #000;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+
+/* HERO com altura controlada */
+.hero {
+  position: relative;
+  min-height: 1080px;
+  height: 100vh;          /* adapta em telas menores */
+  padding-top: 100px;     /* compensa header fixo */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  overflow: hidden;       /* evita vazamento de conteúdo */
+}
+
+.hero h1,
+.hero p {
+  margin: 0; /* evita somar margens extras */
+}
+
+/* SERVICES variável (grid responsivo) */
+.services {
+  position: relative;
+  width: 100%;
+  padding: 80px 40px;     /* reduzido para não inflar altura */
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* PROJECTS com altura controlada */
+.projects {
+  position: relative;
+  min-height: 1080px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  overflow: hidden;
+}
+
+.projects h2,
+.projects p {
+  margin: 0;
+}
+
+/* FOOTER fixo */
+.footer {
+  height: 200px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* === Ajustes para telas ultrawide (≥2560px) === */
+@media (min-width: 2560px) {
+  .hero {
+    padding-top: 140px; /* mais respiro acima */
+    gap: 40px; /* 🔽 itens mais próximos */
+  }
+
+  .hero h1 {
+    font-size: 96px; /* título maior */
+  }
+
+  .hero p {
+    font-size: 28px;
+  }
+
+  .hero-content {
+    max-width: 900px; /* mais espaço para texto */
+  }
+
+  .hero-image img {
+    width: clamp(400px, 30vw, 800px); /* logo maior */
+  }
+
+  .services {
+    padding: 120px 80px; /* mais respiro */
+  }
+
+  .services-title {
+    font-size: 80px; /* título maior */
+    margin-bottom: 120px;
+  }
+
+  .service-card {
+    font-size: 20px;
+  }
+
+  .projects {
+    padding: 120px 80px;
+  }
+
+  .projects-title {
+    font-size: 80px;
+    margin-bottom: 120px;
+  }
+
+  .footer {
+    font-size: 20px; /* textos maiores */
+  }
 }
