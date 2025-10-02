@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import useEmblaCarousel from "embla-carousel-react";
 import "./Projects.css";
-import globalLogo from "../assets/images/global-hitss.png";
-import tetraLogo from "../assets/images/tetra-tech.png";
-import prairieLogo from "../assets/images/prairie-farms.png";
-import tecnofireLogo from "../assets/images/tecnofire.png";
-import redeflexLogo from "../assets/images/rede-flex.png";
-import bancoutilLogo from "../assets/images/banco-util.png";
+import globalLogo from "../../assets/images/global-hitss.png";
+import tetraLogo from "../../assets/images/tetra-tech.png";
+import prairieLogo from "../../assets/images/prairie-farms.png";
+import tecnofireLogo from "../../assets/images/tecnofire.png";
+import redeflexLogo from "../../assets/images/rede-flex.png";
+import bancoutilLogo from "../../assets/images/banco-util.png";
 
 const Projects = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({
@@ -125,11 +125,7 @@ const Projects = () => {
   ];
 
   return (
-    <section
-      className="projects"
-      id="projects"
-      aria-labelledby="projects-title"
-    >
+    <section className="projects" id="projects" aria-labelledby="projects-title">
       <h2 className="projects-title" id="projects-title">
         Nossos Projetos
       </h2>
@@ -191,7 +187,7 @@ const Projects = () => {
         </div>
       </div>
 
-      {/*Navegação (flechas + dots juntos)*/}
+      {/* Navegação (flechas + dots juntos) */}
       <div
         className="projects-nav"
         role="navigation"
@@ -202,8 +198,13 @@ const Projects = () => {
           onClick={scrollPrev}
           aria-label="Slide anterior"
         >
-          ‹
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" strokeWidth="2.5"
+            strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="15 18 9 12 15 6" />
+          </svg>
         </button>
+
         <div className="projects-dots">
           {scrollSnaps.map((_, i) => (
             <button
@@ -215,12 +216,17 @@ const Projects = () => {
             />
           ))}
         </div>
+
         <button
           className="nav-button right"
           onClick={scrollNext}
           aria-label="Próximo slide"
         >
-          ›
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+            fill="none" stroke="currentColor" strokeWidth="2.5"
+            strokeLinecap="round" strokeLinejoin="round">
+            <polyline points="9 18 15 12 9 6" />
+          </svg>
         </button>
       </div>
     </section>

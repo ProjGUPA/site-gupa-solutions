@@ -4,6 +4,7 @@ import "./Header.css";
 
 function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const dropdownRef = useRef(null);
   const hamburgerRef = useRef(null);
 
@@ -26,8 +27,22 @@ function Header() {
     };
   }, []);
 
+  // Detecta scroll para aplicar gradiente
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 20) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="header">
+    <header className={`header ${scrolled ? "scrolled" : ""}`}>
       {/* Logo */}
       <a href="/site-gupa-solutions" className="logo">
         <h1 className="logo-title">GUPASOLUTIONS</h1>

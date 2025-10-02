@@ -26,7 +26,7 @@
 .projects-slider {
   --nav-space: clamp(32px, 5vw, 96px); 
   --content-max: 1280px;
-  --fade-size: 64px; /* controla suavidade */
+  --fade-size: 64px;
 
   position: relative;
   width: 100%;
@@ -34,7 +34,6 @@
   overflow: hidden;
   padding-inline: var(--nav-space);
 
-  /* Recorte suave nas laterais */
   -webkit-mask-image: linear-gradient(
     to right,
     transparent var(--fade-size),
@@ -44,7 +43,7 @@
   );
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
-          mask-image: linear-gradient(
+  mask-image: linear-gradient(
     to right,
     transparent var(--fade-size),
     black calc(var(--fade-size) * 2),
@@ -100,7 +99,6 @@
   justify-content: center;
   overflow: hidden;
   position: relative;
-  overflow: hidden;
   isolation: isolate;
   --glow-color1: 92, 41, 133;
   --glow-color2: 112, 248, 186;
@@ -123,7 +121,6 @@
   width: clamp(480px, 32vw, 220px);
   height: clamp(320px, 32vw, 220px);
   border-radius: 50%;
-  /* Radial mais suave que some para transparente nas bordas */
   background: radial-gradient(
     circle,
     rgba(var(--glow-color2), 0.85) 0%,
@@ -200,27 +197,22 @@
 .projects-nav .nav-button {
   all: unset;
   cursor: pointer;
-  font-size: clamp(32px, 5vw, 48px);
-  font-weight: 400;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, #d5d5d5, #5c2985);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  padding: 6px;
+  color: #5c2985;
+  transition: color 0.3s ease, transform 0.2s ease;
 }
 
-.projects-nav .nav-button:focus {
-  outline: none; /* remove contorno azul */
+.projects-nav .nav-button svg {
+  display: block;
 }
 
 .projects-nav .nav-button:hover {
-  background: none;
-  -webkit-text-fill-color: #fff;
-  text-shadow:
-    0 0 8px rgba(92,41,133,1),
-    0 0 16px rgba(92,41,133,0.9),
-    0 0 32px rgba(92,41,133,0.7);
+  color: #fff;
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(92, 41, 133, 0.8));
 }
 
 /* Dots */
@@ -268,7 +260,6 @@
   overflow: visible;
 }
 
-
 @media (max-width: 1024px) {
   .project-row {
     flex-direction: column;
@@ -276,15 +267,15 @@
     justify-content: center;
     text-align: center;
     gap: clamp(20px, 4vw, 32px);
-    max-width: 90%;        /* 🔑 limita o container geral */
-    margin-inline: auto;   /* centraliza horizontalmente */
+    max-width: 90%;
+    margin-inline: auto;
   }
 
   .project-text {
     text-align: center;
     align-items: center;
-    max-width: 640px;      /* 🔑 largura máxima para o texto */
-    margin-inline: auto;   /* centraliza dentro do row */
+    max-width: 640px;
+    margin-inline: auto;
   }
 
   .brand-card {
@@ -297,7 +288,6 @@
     padding-inline: 0;
   }
 }
-
 
 @media (max-width: 768px) {
   .projects-nav .nav-button {

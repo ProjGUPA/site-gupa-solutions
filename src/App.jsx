@@ -1,8 +1,9 @@
 import "./App.css";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import Services from "./components/Services";
-import Projects from "./components/Projects";
+import Header from "./components/Header/Header";
+import Hero from "./components/Hero/Hero";
+import Services from "./components/Services/Services";
+import Projects from "./components/Projects/Projects";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <Services />
       <Projects />
+      <Footer />
     </>
   );
 }

@@ -55,7 +55,7 @@
 }
 
 /* Botão */
-.cta-btn {
+.hero-btn {
   width: clamp(200px, 20vw, 320px);
   height: clamp(48px, 6vh, 64px);
   border-radius: 32px;
@@ -76,7 +76,7 @@
 }
 
 /* Hover: apenas glow */
-.cta-btn:hover {
+.hero-btn:hover {
   box-shadow: 0 0 10px rgba(92, 41, 133, 0.7),
               0 0 20px rgba(92, 41, 133, 0.5),
               0 0 30px rgba(43, 31, 77, 0.4);
@@ -156,7 +156,7 @@
     margin-top: 20px;
   }
 
-  .cta-btn {
+  .hero-btn {
     width: 200px;
     height: 48px;
     border-radius: 24px;

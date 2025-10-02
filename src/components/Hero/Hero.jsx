@@ -1,6 +1,6 @@
 // Hero.jsx
 import "./Hero.css";
-import logoImg from "../assets/images/logo-3d.png";
+import logoImg from "../../assets/images/logo-3d.png";
 
 function Hero() {
   return (
@@ -13,7 +13,7 @@ function Hero() {
           precisa.
         </h2>
 
-        <a href="#projects" className="cta-btn line4">
+        <a href="#projects" className="hero-btn line4">
           ACESSE NOSSO PORTFÓLIO
         </a>
       </div>

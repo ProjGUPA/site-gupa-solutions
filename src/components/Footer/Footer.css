@@ -1,0 +1,88 @@
+/* 🔑 Garante que o footer cole na base da página */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+#root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.site-footer {
+  position: relative;
+  overflow: hidden;
+  background: transparent;
+  color: #fff;
+  margin-top: auto;   /* 🔑 cola o footer na base */
+}
+
+/* Container interno */
+.footer-inner {
+  width: min(1280px, 92vw);
+  margin: 0 auto;
+  padding: clamp(40px, 6vw, 72px) 0 0; /* 🔑 remove padding-bottom */
+  text-align: center;
+}
+
+/* Título */
+.footer-title {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  margin: 0 0 clamp(0px, 3vw, 26px);
+  background: linear-gradient(135deg, #ededed, #c3b0d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Botões */
+.footer-cta {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 20px; /* 🔑 mais compacto */
+}
+
+/* Botões */
+.footer-btn {
+  --glow: rgba(92,41,133,0.45); /* Glow mais suave */
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  background: radial-gradient(120% 120% at 30% 20%, #5c2985, #2B1F4D 70%);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.08) inset,
+    0 4px 10px rgba(0,0,0,0.25);
+  transition: transform .1s ease, box-shadow .1s ease, filter .2s ease, background .1s ease;
+}
+
+.footer-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  background: radial-gradient(120% 120% at 30% 20%, #3a1d5a, #1d1530 80%); /* 🔹 escurece no hover */
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.12) inset,
+    0 6px 14px rgba(0,0,0,0.45),
+    0 0 18px var(--glow); /* 🔹 glow bem mais discreto */
+  filter: brightness(1); /* 🔹 dá a sensação de escurecer */
+}
+
+.cta-icon {
+  width: 32px;
+  height: 32px;
+  display: block;
+}
+
+
+/* Copyright */
+.footer-copy {
+  margin-top: 12px;
+  font-size: 18px;
+  color: #cfc6da;
+}
