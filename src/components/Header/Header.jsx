@@ -1,4 +1,3 @@
-// Header.jsx
 import { useState, useEffect, useRef } from "react";
 import "./Header.css";
 
@@ -8,7 +7,6 @@ function Header() {
   const dropdownRef = useRef(null);
   const hamburgerRef = useRef(null);
 
-  // Fecha o menu se clicar fora
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -27,7 +25,6 @@ function Header() {
     };
   }, []);
 
-  // Detecta scroll para aplicar gradiente
   useEffect(() => {
     const onScroll = () => {
       if (window.scrollY > 20) {
@@ -43,13 +40,11 @@ function Header() {
 
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
-      {/* Logo */}
       <a href="/site-gupa-solutions" className="logo">
         <h1 className="logo-title">GUPASOLUTIONS</h1>
         <p className="logo-subtitle">TECNOLOGIA E INOVAÇÃO</p>
       </a>
 
-      {/* Botão hambúrguer (visível no mobile) */}
       <div
         className="hamburger"
         ref={hamburgerRef}
@@ -60,7 +55,6 @@ function Header() {
         <span></span>
       </div>
 
-      {/* Menu normal (desktop) */}
       <nav className="nav desktop-nav">
         <ul>
           <li><a href="#about">Sobre</a></li>
@@ -70,7 +64,6 @@ function Header() {
         </ul>
       </nav>
 
-      {/* Menu dropdown (mobile) */}
       {menuOpen && (
         <nav className="dropdown-menu" ref={dropdownRef}>
           <ul>

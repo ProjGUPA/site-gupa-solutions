@@ -1,33 +1,163 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Footer.css";
 
+const EMAIL_ADDRESS = "gupasolutions01@gmail.com";
+const WHATSAPP_NUMBER = "5531983234169";
+
+const EMAIL_SUBJECT = "Contato via Site | Novas Soluções para Sistemas";
+const DEFAULT_MESSAGE =
+  "Olá! Vim pelo site e gostaria de conversar sobre novas soluções para nosso sistema.";
+
+const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
+  EMAIL_ADDRESS
+)}&su=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(
+  DEFAULT_MESSAGE
+)}`;
+
+const gmailWebUrl = `https://accounts.google.com/AccountChooser?service=mail&continue=${encodeURIComponent(
+  gmailComposeUrl
+)}`;
+
+const outlookWebUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(
+  EMAIL_ADDRESS
+)}&subject=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(
+  DEFAULT_MESSAGE
+)}`;
+
+const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
+  DEFAULT_MESSAGE
+)}`;
+
 const Footer = () => {
+  const [emailExpanded, setEmailExpanded] = useState(false);
+  const emailBtnRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (emailBtnRef.current && !emailBtnRef.current.contains(e.target)) {
+        setEmailExpanded(false);
+      }
+    };
+
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        setEmailExpanded(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, []);
+
   return (
-    <footer className="site-footer" aria-labelledby="footer-heading" id="contact">
+    <footer
+      className="site-footer"
+      aria-labelledby="footer-heading"
+      id="contact"
+    >
       <div className="footer-inner">
-        {/* Título */}
         <h2 id="footer-heading" className="footer-title">
           Nos envie uma mensagem!
         </h2>
 
-        {/* Botões */}
-        <div className="footer-cta" role="group" aria-label="Canais de contato">
-          <a
-            href="mailto:contato@gupasolutions.com"
-            className="footer-btn email"
+        <div
+          className="footer-cta"
+          role="group"
+          aria-label="Canais de contato"
+        >
+          <div
+            ref={emailBtnRef}
+            className={`footer-btn email-morph ${
+              emailExpanded ? "is-expanded" : ""
+            }`}
+            role="button"
+            tabIndex={emailExpanded ? -1 : 0}
+            aria-expanded={emailExpanded}
             aria-label="Enviar email para Gupa Solutions"
-            title="Enviar email"
+            title={emailExpanded ? "" : "Enviar email"}
+            onClick={() => {
+              if (!emailExpanded) setEmailExpanded(true);
+            }}
+            onKeyDown={(e) => {
+              if (!emailExpanded && (e.key === "Enter" || e.key === " ")) {
+                e.preventDefault();
+                setEmailExpanded(true);
+              }
+            }}
           >
-            <svg viewBox="0 0 24 24" className="cta-icon" aria-hidden="true">
-              <path
-                d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"
-                fill="currentColor"
-              />
-            </svg>
-          </a>
+            <span className="email-envelope-layer" aria-hidden={emailExpanded}>
+              <svg viewBox="0 0 24 24" className="cta-icon" aria-hidden="true">
+                <path
+                  d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm0 4-8 5L4 8V6l8 5 8-5v2Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+
+            <div
+              className="email-providers-layer"
+              aria-hidden={!emailExpanded}
+            >
+              <a
+                href={gmailWebUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="provider-half gmail"
+                aria-label="Enviar pelo Gmail"
+                title="Abrir no Gmail"
+                tabIndex={emailExpanded ? 0 : -1}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setEmailExpanded(false);
+                }}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="provider-icon"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"
+                  />
+                </svg>
+              </a>
+
+              <span className="provider-divider" aria-hidden="true" />
+
+              <a
+                href={outlookWebUrl}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="provider-half outlook"
+                aria-label="Enviar pelo Outlook"
+                title="Abrir no Outlook"
+                tabIndex={emailExpanded ? 0 : -1}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setEmailExpanded(false);
+                }}
+              >
+                <svg
+                  viewBox="0 0 24 24"
+                  className="provider-icon"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M14 2v20L1 19.8V4.2L14 2zm1.5 3.5H22A1.5 1.5 0 0 1 23.5 7v10a1.5 1.5 0 0 1-1.5 1.5h-6.5v-2h6V10l-6 3.7V11.5l6-3.7V7.5h-6v-2zM7.8 8.2C5.6 8.2 4 9.9 4 12s1.6 3.8 3.8 3.8 3.8-1.7 3.8-3.8-1.6-3.8-3.8-3.8zm0 2.1c1 0 1.7.8 1.7 1.7s-.7 1.7-1.7 1.7-1.7-.8-1.7-1.7.7-1.7 1.7-1.7z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
 
           <a
-            href="https://wa.me/5500000000000"
+            href={whatsappUrl}
             target="_blank"
             rel="noreferrer noopener"
             className="footer-btn whatsapp"
@@ -43,7 +173,6 @@ const Footer = () => {
           </a>
         </div>
 
-        {/* Copyright */}
         <p className="footer-copy">© 2025 GUPASOLUTIONS.</p>
       </div>
     </footer>
