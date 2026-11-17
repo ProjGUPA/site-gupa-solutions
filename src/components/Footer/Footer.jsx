@@ -173,7 +173,7 @@ const Footer = () => {
           </a>
         </div>
 
-        <p className="footer-copy">© 2025 GUPASOLUTIONS.</p>
+        <p className="footer-copy">© 2027 GUPASOLUTIONS.</p>
       </div>
     </footer>
   );

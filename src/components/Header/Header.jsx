@@ -40,40 +40,40 @@ function Header() {
 
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
-      <a href="/site-gupa-solutions" className="logo">
-        <h1 className="logo-title">GUPASOLUTIONS</h1>
-        <p className="logo-subtitle">TECNOLOGIA E INOVAÇÃO</p>
-      </a>
+      <div className="header-inner">
+        <a href="/site-gupa-solutions" className="logo">
+          <h1 className="logo-title">GUPASOLUTIONS</h1>
+          <p className="logo-subtitle">TECNOLOGIA E INOVAÇÃO</p>
+        </a>
 
-      <div
-        className="hamburger"
-        ref={hamburgerRef}
-        onClick={() => setMenuOpen(!menuOpen)}
-      >
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+        <div
+          className="hamburger"
+          ref={hamburgerRef}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
 
-      <nav className="nav desktop-nav">
-        <ul>
-          <li><a href="#about">Sobre</a></li>
-          <li><a href="#services">Serviços</a></li>
-          <li><a href="#projects">Nossos Projetos</a></li>
-          <li><a href="#contact">Contato</a></li>
-        </ul>
-      </nav>
-
-      {menuOpen && (
-        <nav className="dropdown-menu" ref={dropdownRef}>
+        <nav className="nav desktop-nav">
           <ul>
-            <li><a href="#about" onClick={() => setMenuOpen(false)}>Sobre</a></li>
-            <li><a href="#services" onClick={() => setMenuOpen(false)}>Serviços</a></li>
-            <li><a href="#projects" onClick={() => setMenuOpen(false)}>Nossos Projetos</a></li>
-            <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contato</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#projects">Nossos Projetos</a></li>
+            <li><a href="#contact">Contato</a></li>
           </ul>
         </nav>
-      )}
+
+        {menuOpen && (
+          <nav className="dropdown-menu" ref={dropdownRef}>
+            <ul>
+              <li><a href="#services" onClick={() => setMenuOpen(false)}>Serviços</a></li>
+              <li><a href="#projects" onClick={() => setMenuOpen(false)}>Nossos Projetos</a></li>
+              <li><a href="#contact" onClick={() => setMenuOpen(false)}>Contato</a></li>
+            </ul>
+          </nav>
+        )}
+      </div>
     </header>
   );
 }
