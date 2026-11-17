@@ -6,8 +6,6 @@
   text-align: center;
 
   background-color: var(--bg-base);
-  background-image: radial-gradient(rgba(107, 33, 168, 0.10) 1.5px, transparent 1.5px);
-  background-size: 28px 28px;
   color: var(--text-primary);
 
   display: flex;
