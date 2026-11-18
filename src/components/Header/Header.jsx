@@ -57,7 +57,7 @@ function Header() {
   return (
     <header className={`header ${scrolled ? "scrolled" : ""}`}>
       <div className="header-inner">
-        <a href="/site-gupa-solutions" className="logo">
+        <a href="/" className="logo">
           <h1 className="logo-title">GUPASOLUTIONS</h1>
           <p className="logo-subtitle">TECNOLOGIA E INOVAÇÃO</p>
         </a>
