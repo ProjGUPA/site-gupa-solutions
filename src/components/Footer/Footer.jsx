@@ -1,32 +1,10 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Footer.css";
-
-const EMAIL_ADDRESS = "gupasolutions01@gmail.com";
-const WHATSAPP_NUMBER = "5531983234169";
-
-const EMAIL_SUBJECT = "Contato via Site | Novas Soluções para Sistemas";
-const DEFAULT_MESSAGE =
-  "Olá! Vim pelo site e gostaria de conversar sobre novas soluções para nosso sistema.";
-
-const gmailComposeUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(
-  EMAIL_ADDRESS
-)}&su=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(
-  DEFAULT_MESSAGE
-)}`;
-
-const gmailWebUrl = `https://accounts.google.com/AccountChooser?service=mail&continue=${encodeURIComponent(
-  gmailComposeUrl
-)}`;
-
-const outlookWebUrl = `https://outlook.live.com/mail/0/deeplink/compose?to=${encodeURIComponent(
-  EMAIL_ADDRESS
-)}&subject=${encodeURIComponent(EMAIL_SUBJECT)}&body=${encodeURIComponent(
-  DEFAULT_MESSAGE
-)}`;
-
-const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-  DEFAULT_MESSAGE
-)}`;
+import {
+  WHATSAPP_URL,
+  GMAIL_WEB_URL,
+  OUTLOOK_WEB_URL,
+} from "../../constants/contact";
 
 const Footer = () => {
   const [emailExpanded, setEmailExpanded] = useState(false);
@@ -103,7 +81,7 @@ const Footer = () => {
               aria-hidden={!emailExpanded}
             >
               <a
-                href={gmailWebUrl}
+                href={GMAIL_WEB_URL}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="provider-half gmail"
@@ -130,7 +108,7 @@ const Footer = () => {
               <span className="provider-divider" aria-hidden="true" />
 
               <a
-                href={outlookWebUrl}
+                href={OUTLOOK_WEB_URL}
                 target="_blank"
                 rel="noreferrer noopener"
                 className="provider-half outlook"
@@ -157,7 +135,7 @@ const Footer = () => {
           </div>
 
           <a
-            href={whatsappUrl}
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer noopener"
             className="footer-btn whatsapp"
@@ -173,7 +151,7 @@ const Footer = () => {
           </a>
         </div>
 
-        <p className="footer-copy">© 2027 GUPASOLUTIONS.</p>
+        <p className="footer-copy">© {new Date().getFullYear()} GUPASOLUTIONS.</p>
       </div>
     </footer>
   );

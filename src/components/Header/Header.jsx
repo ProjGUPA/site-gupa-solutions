@@ -20,6 +20,7 @@ function Header() {
     try {
       localStorage.setItem("gupa-theme", theme);
     } catch {
+      // Ignora falhas de escrita no localStorage
     }
   }, [isDark]);
 

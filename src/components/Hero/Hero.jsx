@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import "./Hero.css";
 import heroEndframe from "../../assets/images/hero_image.png";
 import heroVideo from "../../assets/videos/hero_video.mp4";
+import { WHATSAPP_URL } from "../../constants/contact";
 
 function Hero() {
   const [videoEnded, setVideoEnded] = useState(false);
@@ -56,8 +57,13 @@ function Hero() {
         </h2>
 
         <div className="hero-actions line4">
-          <a href="#contact" className="hero-btn primary">
-            FALE CONOSCO
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            className="hero-btn primary"
+          >
+            FALE COM UM ESPECIALISTA
           </a>
           <a href="#projects" className="hero-btn secondary">
             NOSSOS CLIENTES
