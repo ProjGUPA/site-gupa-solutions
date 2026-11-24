@@ -3,6 +3,7 @@ import "./Hero.css";
 import heroEndframe from "../../assets/images/hero_image.png";
 import heroVideo from "../../assets/videos/hero_video.mp4";
 import { WHATSAPP_URL } from "../../constants/contact";
+import { trackWhatsAppClick } from "../../utils/analytics";
 
 function Hero() {
   const [videoEnded, setVideoEnded] = useState(false);
@@ -21,6 +22,7 @@ function Hero() {
     e.currentTarget.muted = true;
     e.currentTarget.volume = 0;
   };
+
 
   return (
     <section className="hero" id="about">
@@ -62,6 +64,7 @@ function Hero() {
             target="_blank"
             rel="noreferrer noopener"
             className="hero-btn primary"
+            onClick={() => trackWhatsAppClick("hero")}
           >
             FALE COM UM ESPECIALISTA
           </a>

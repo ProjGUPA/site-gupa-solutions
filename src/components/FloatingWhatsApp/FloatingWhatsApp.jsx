@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "./FloatingWhatsApp.css";
 import { WHATSAPP_URL } from "../../constants/contact";
+import { trackWhatsAppClick } from "../../utils/analytics";
 
 function FloatingWhatsApp() {
   const [isVisible, setIsVisible] = useState(false);
@@ -72,6 +73,7 @@ function FloatingWhatsApp() {
         className="floating-whatsapp-btn"
         aria-label="Conversar com um especialista no WhatsApp"
         tabIndex={isVisible ? 0 : -1}
+        onClick={() => trackWhatsAppClick("floating")}
       >
         <span className="floating-whatsapp-pulse" aria-hidden="true" />
         <svg

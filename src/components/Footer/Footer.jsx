@@ -5,6 +5,7 @@ import {
   GMAIL_WEB_URL,
   OUTLOOK_WEB_URL,
 } from "../../constants/contact";
+import { trackWhatsAppClick } from "../../utils/analytics";
 
 const Footer = () => {
   const [emailExpanded, setEmailExpanded] = useState(false);
@@ -141,6 +142,7 @@ const Footer = () => {
             className="footer-btn whatsapp"
             aria-label="Abrir conversa no WhatsApp"
             title="WhatsApp"
+            onClick={() => trackWhatsAppClick("footer")}
           >
             <svg viewBox="0 0 24 24" className="cta-icon" aria-hidden="true">
               <path
